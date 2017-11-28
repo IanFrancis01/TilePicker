@@ -22,10 +22,8 @@ namespace Assignment_5___Tile_Picker
         private void btnStart_Click_1(object sender, EventArgs e)
         {
             myGrid = new Grid(8, 8, 50);
-
             this.Refresh();
 
-            //randomize the grid, use while loop
         }
 
         private void Form1_Paint(object sender, PaintEventArgs e)
