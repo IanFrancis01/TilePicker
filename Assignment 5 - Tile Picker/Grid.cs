@@ -38,54 +38,69 @@ namespace Assignment_5___Tile_Picker
             int Aqua = 0;
             int Brown = 0;
             int Black = 0;
-
-            Random ColorOrder = new Random();
-            for (int k = 0; k < 5; k++)
+            //looping through the colors, displaying them onto the screen.
+            for (int i = 0; i < mRows; i++)
             {
-                //Random ColorOrder[k] =
-                //looping through the colors, displaying them onto the screen.
-                for (int i = 0; i < mRows; i++)
+                for (int j = 0; j < mColumns; j++)
                 {
-                    for (int j = 0; j < mColumns; j++)
+                    if (Red < 20)
                     {
-                        if (Red < 20)
-                        {
-                            mGrid[i, j].BackgroundColour = Color.Red;
-                            Red++;
-                        }
-                        else if (Blue < 20)
-                        {
-                            mGrid[i, j].BackgroundColour = Color.Blue;
-                            Blue++;
-                        }
-                        else if (Green < 5)
-                        {
-                            mGrid[i, j].BackgroundColour = Color.Green;
-                            Green++;
-                        }
-                        else if (Maroon < 5)
-                        {
-                            mGrid[i, j].BackgroundColour = Color.Maroon;
-                            Maroon++;
-                        }
-                        else if (Aqua < 4)
-                        {
-                            mGrid[i, j].BackgroundColour = Color.Aqua;
-                            Aqua++;
-                        }
-                        else if (Brown < 5)
-                        {
-                            mGrid[i, j].BackgroundColour = Color.Brown;
-                            Brown++;
-                        }
-                        else if (Black < 5)
-                        {
-                            mGrid[i, j].BackgroundColour = Color.Black;
-                            Black++;
-                        }
+                        mGrid[i, j].BackgroundColour = Color.Red;
+                        Red++;
+                    }
+                    else if (Blue < 20)
+                    {
+                        mGrid[i, j].BackgroundColour = Color.Blue;
+                        Blue++;
+                    }
+                    else if (Green < 5)
+                    {
+                        mGrid[i, j].BackgroundColour = Color.Green;
+                        Green++;
+                    }
+                    else if (Maroon < 5)
+                    {
+                        mGrid[i, j].BackgroundColour = Color.Maroon;
+                        Maroon++;
+                    }
+                    else if (Aqua < 4)
+                    {
+                        mGrid[i, j].BackgroundColour = Color.Aqua;
+                        Aqua++;
+                    }
+                    else if (Brown < 5)
+                    {
+                        mGrid[i, j].BackgroundColour = Color.Brown;
+                        Brown++;
+                    }
+                    else if (Black < 5)
+                    {
+                        mGrid[i, j].BackgroundColour = Color.Black;
+                        Black++;
                     }
                 }
             }
+
+           
+            //Creating a randomizer and a temp Color
+            Random ColorOrder = new Random();
+            Color TempTile;
+
+            //looping through the rows and columns
+            for (int i = 0; i < mRows; i++)
+            {
+                for (int j = 0; j < mColumns; j++)
+                {
+                    //setting the bounds for the randomizer
+                    Rows =  ColorOrder.Next(0, 7);
+                    Columns = ColorOrder.Next(0, 7);
+                    //randomizing the colors
+                    TempTile = mGrid[i, j].BackgroundColour;
+                    mGrid[i, j].BackgroundColour = mGrid[Rows, Columns].BackgroundColour;
+                    mGrid[Rows, Columns].BackgroundColour = TempTile;
+                }
+            }
+            
         }
 
         //Methods
