@@ -9,6 +9,8 @@ namespace Assignment_5___Tile_Picker
         private int mRows, mColumns;
         private int mTileSize;
         private Color mBackgroundColor;
+        private int Score = 0;
+        private int MaxClicks = 10;
 
         //Constructors
         public Grid(int Rows, int Columns, int TileSize)
@@ -81,18 +83,18 @@ namespace Assignment_5___Tile_Picker
                 }
             }
 
-           
+
             //Creating a randomizer and a temp Color
             Random ColorOrder = new Random();
             Color TempTile;
 
             //looping through the rows and columns
-            for (int i = 0; i < mRows; i++)
+            for (int i = 0; i < Rows; i++)
             {
-                for (int j = 0; j < mColumns; j++)
+                for (int j = 0; j < Columns; j++)
                 {
                     //setting the bounds for the randomizer
-                    Rows =  ColorOrder.Next(0, 7);
+                    Rows = ColorOrder.Next(0, 7);
                     Columns = ColorOrder.Next(0, 7);
                     //randomizing the colors
                     TempTile = mGrid[i, j].BackgroundColour;
@@ -100,7 +102,57 @@ namespace Assignment_5___Tile_Picker
                     mGrid[Rows, Columns].BackgroundColour = TempTile;
                 }
             }
-            
+
+            //creating a loop to detect where the player clicks
+            for (int i = 0; i < Rows; i++)
+            {
+                for (int j = 0; j < Columns; j++)
+                {
+                    if (MaxClicks > 0)
+                    {
+                        // add if(mouse left click is true)
+                        if (mGrid[i, j].BackgroundColour == Color.Red)
+                        {
+                            Score += 1;
+                            MaxClicks--;
+                        }
+                        else if (mGrid[i, j].BackgroundColour == Color.Blue)
+                        {
+                            Score += 1;
+                            MaxClicks--;
+                        }
+                        else if (mGrid[i, j].BackgroundColour == Color.Green)
+                        {
+                            Score += 1;
+                            MaxClicks--;
+                        }
+                        else if (mGrid[i, j].BackgroundColour == Color.Maroon)
+                        {
+                            Score += 1;
+                            MaxClicks--;
+                        }
+                        else if (mGrid[i, j].BackgroundColour == Color.Aqua)
+                        {
+                            Score += 1;
+                            MaxClicks--;
+                        }
+                        else if (mGrid[i, j].BackgroundColour == Color.Brown)
+                        {
+                            Score += 1;
+                            MaxClicks--;
+                        }
+                        else if (mGrid[i, j].BackgroundColour == Color.Black)
+                        {
+                            Score += 1;
+                            MaxClicks--;
+                        }
+                    }
+                    else
+                    {
+                        //once the user has maxed out the amount of times they can click
+                    }
+                }
+            }
         }
 
         //Methods
@@ -124,7 +176,7 @@ namespace Assignment_5___Tile_Picker
                     mGrid[i, j].Draw(g, pX, pY);
                 }
             }
-        }                    
+        }
 
-     }
-  }
+    }
+}

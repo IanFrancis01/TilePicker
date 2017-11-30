@@ -12,8 +12,10 @@ namespace Assignment_5___Tile_Picker
 {
     public partial class Form1 : Form
     {
-        //global field
-        Grid myGrid;
+        //global fields
+        Grid GameGrid;
+        int GridRows = 8;
+        int GridColumns = 8;
         public Form1()
         {
             InitializeComponent();
@@ -21,18 +23,18 @@ namespace Assignment_5___Tile_Picker
 
         private void btnStart_Click_1(object sender, EventArgs e)
         {
-            myGrid = new Grid(8, 8, 50);
+            GameGrid = new Grid(GridRows, GridColumns, 50);
             this.Refresh();
 
         }
 
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
-            if (myGrid != null)
+            if (GameGrid != null)
             {
 
-            Graphics g = this.CreateGraphics();
-            myGrid.Draw(g, 5, 5);
+                Graphics g = this.CreateGraphics();
+                GameGrid.Draw(g, 5, 5);
 
             }
         }
@@ -41,7 +43,8 @@ namespace Assignment_5___Tile_Picker
         {
             if (e.Button == MouseButtons.Left)
             {
-                MessageBox.Show("X = " + e.X + " Y = " + e.Y);
+                MessageBox.Show("You must initialize the grid!");
+                //MessageBox.Show("X = " + e.X + " Y = " + e.Y);
             }
         }
 

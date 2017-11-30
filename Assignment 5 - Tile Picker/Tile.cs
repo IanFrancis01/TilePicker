@@ -42,7 +42,7 @@ namespace Assignment_5___Tile_Picker
             //draw tile
             g.FillRectangle(BackBrush, X, Y, this.mSize, this.mSize);
             g.DrawRectangle(BorderPen, X, Y, this.mSize, this.mSize);
-            
+
 
             //dispose of drawing objects
             BorderPen.Dispose();
