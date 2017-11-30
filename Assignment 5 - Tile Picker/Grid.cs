@@ -8,9 +8,7 @@ namespace Assignment_5___Tile_Picker
         private Tile[,] mGrid;
         private int mRows, mColumns;
         private int mTileSize;
-        private Color mBackgroundColor;
-        private int Score = 0;
-        private int MaxClicks = 10;
+        private Color mTileColor;
 
         //Constructors
         public Grid(int Rows, int Columns, int TileSize)
@@ -103,6 +101,7 @@ namespace Assignment_5___Tile_Picker
                 }
             }
 
+            /*
             //creating a loop to detect where the player clicks
             for (int i = 0; i < Rows; i++)
             {
@@ -153,6 +152,7 @@ namespace Assignment_5___Tile_Picker
                     }
                 }
             }
+             */
         }
 
         //Methods

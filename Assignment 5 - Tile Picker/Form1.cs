@@ -16,6 +16,9 @@ namespace Assignment_5___Tile_Picker
         Grid GameGrid;
         int GridRows = 8;
         int GridColumns = 8;
+        int MaxClicks = 0;
+        int UserScore = 0;
+
         public Form1()
         {
             InitializeComponent();
@@ -50,6 +53,57 @@ namespace Assignment_5___Tile_Picker
             }
             else
             {
+
+                //creating a loop to detect where the player clicks
+                for (int i = 0; i < GridRows; i++)
+                {
+                    for (int j = 0; j < GridColumns; j++)
+                    {
+                        if (MaxClicks > 0)
+                        {
+                            // add if(mouse left click is true)
+                            if (GameGrid[i,j].BackgroundColour == Color.Red)
+                            {
+                                UserScore += 1;
+                                MaxClicks--;
+                            }
+                            else if (GameGrid[i, j].BackgroundColour == Color.Blue)
+                            {
+                                UserScore += 1;
+                                MaxClicks--;
+                            }
+                            else if (GameGrid[i, j].BackgroundColour == Color.Green)
+                            {
+                                UserScore += 1;
+                                MaxClicks--;
+                            }
+                            else if (GameGrid[i, j].BackgroundColour == Color.Maroon)
+                            {
+                                UserScore += 1;
+                                MaxClicks--;
+                            }
+                            else if (GameGrid[i, j].BackgroundColour == Color.Aqua)
+                            {
+                                UserScore += 1;
+                                MaxClicks--;
+                            }
+                            else if (GameGrid[i, j].BackgroundColour == Color.Brown)
+                            {
+                                UserScore += 1;
+                                MaxClicks--;
+                            }
+                            else if (GameGrid[i, j].BackgroundColour == Color.Black)
+                            {
+                                UserScore += 1;
+                                MaxClicks--;
+                            }
+                        }
+                        else
+                        {
+                            //once the user has maxed out the amount of times they can click
+                        }
+                    }
+                }
                 MessageBox.Show("X = " + e.X + " Y = " + e.Y);
             }
         }
