@@ -41,10 +41,16 @@ namespace Assignment_5___Tile_Picker
 
         private void Form1_MouseClick(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Left)
+            if(GameGrid == null)
             {
-                MessageBox.Show("You must initialize the grid!");
-                //MessageBox.Show("X = " + e.X + " Y = " + e.Y);
+                if (e.Button == MouseButtons.Left)
+                {
+                    MessageBox.Show("You must initialize the grid!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("X = " + e.X + " Y = " + e.Y);
             }
         }
 
