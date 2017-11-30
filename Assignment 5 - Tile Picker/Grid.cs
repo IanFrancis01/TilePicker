@@ -89,9 +89,9 @@ namespace Assignment_5___Tile_Picker
             Color TempTile;
 
             //looping through the rows and columns
-            for (int i = 0; i < Rows; i++)
+            for (int i = 0; i < mRows; i++)
             {
-                for (int j = 0; j < Columns; j++)
+                for (int j = 0; j < mColumns; j++)
                 {
                     //setting the bounds for the randomizer
                     Rows = ColorOrder.Next(0, 7);
