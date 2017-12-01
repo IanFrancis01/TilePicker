@@ -8,7 +8,6 @@ namespace Assignment_5___Tile_Picker
         private Tile[,] mGrid;
         private int mRows, mColumns;
         private int mTileSize;
-        private Color mTileColor;
 
         //Constructors
         public Grid(int Rows, int Columns, int TileSize)
@@ -45,37 +44,37 @@ namespace Assignment_5___Tile_Picker
                 {
                     if (Red < 20)
                     {
-                        mGrid[i, j].BackgroundColour = Color.Red;
+                        mGrid[i, j].TileColour = Color.Red;
                         Red++;
                     }
                     else if (Blue < 20)
                     {
-                        mGrid[i, j].BackgroundColour = Color.Blue;
+                        mGrid[i, j].TileColour = Color.Blue;
                         Blue++;
                     }
                     else if (Green < 5)
                     {
-                        mGrid[i, j].BackgroundColour = Color.Green;
+                        mGrid[i, j].TileColour = Color.Green;
                         Green++;
                     }
                     else if (Maroon < 5)
                     {
-                        mGrid[i, j].BackgroundColour = Color.Maroon;
+                        mGrid[i, j].TileColour = Color.Maroon;
                         Maroon++;
                     }
                     else if (Aqua < 4)
                     {
-                        mGrid[i, j].BackgroundColour = Color.Aqua;
+                        mGrid[i, j].TileColour = Color.Aqua;
                         Aqua++;
                     }
                     else if (Brown < 5)
                     {
-                        mGrid[i, j].BackgroundColour = Color.Brown;
+                        mGrid[i, j].TileColour = Color.Brown;
                         Brown++;
                     }
                     else if (Black < 5)
                     {
-                        mGrid[i, j].BackgroundColour = Color.Black;
+                        mGrid[i, j].TileColour = Color.Black;
                         Black++;
                     }
                 }
@@ -156,9 +155,9 @@ namespace Assignment_5___Tile_Picker
         }
 
         //Methods
-        public Tile GetTile(int Row, int Column)
+        public Tile GetTile(int x, int y)
         {
-            return mGrid[Row - 1, Column - 1];
+            return mGrid[x, y];
         }
 
         //X and Y are the left and top of the grid

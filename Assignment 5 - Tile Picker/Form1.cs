@@ -16,8 +16,6 @@ namespace Assignment_5___Tile_Picker
         Grid GameGrid;
         int GridRows = 8;
         int GridColumns = 8;
-        int MaxClicks = 0;
-        int UserScore = 0;
 
         public Form1()
         {
@@ -26,7 +24,7 @@ namespace Assignment_5___Tile_Picker
 
         private void btnStart_Click_1(object sender, EventArgs e)
         {
-            GameGrid = new Grid(GridRows, GridColumns, 50);
+            GameGrid = new Grid(GridRows, GridColumns, 60);
             this.Refresh();
 
         }
@@ -44,16 +42,26 @@ namespace Assignment_5___Tile_Picker
 
         private void Form1_MouseClick(object sender, MouseEventArgs e)
         {
-            if(GameGrid == null)
+            if (GameGrid == null)
             {
+
                 if (e.Button == MouseButtons.Left)
                 {
-                    MessageBox.Show("You must initialize the grid!");
+                    MessageBox.Show("You must initialize the grid to play!");
                 }
             }
             else
             {
+                int X = (e.X / 60);
+                int Y = (e.Y / 60);
+                GameGrid.GetTile(Y, X).BackgroundColour = GameGrid.GetTile(X, Y).TileColour;
+                
+                this.Refresh();
 
+
+                //MessageBox.Show("X = " + e.X + " Y = " + e.Y);
+            }
+                /*
                 //creating a loop to detect where the player clicks
                 for (int i = 0; i < GridRows; i++)
                 {
@@ -104,9 +112,10 @@ namespace Assignment_5___Tile_Picker
                         }
                     }
                 }
-                MessageBox.Show("X = " + e.X + " Y = " + e.Y);
+
+            
+                 */ 
             }
-        }
 
         private void btnStart_Paint(object sender, PaintEventArgs e)
         {

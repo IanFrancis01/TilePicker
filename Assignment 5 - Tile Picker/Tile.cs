@@ -9,12 +9,13 @@ namespace Assignment_5___Tile_Picker
         private int mSize;
         private Color mBackgroundColour;
         private Color mBorderColour;
+        private Color mTileColour;
 
         //Constructor
         public Tile()
         {
             //default white to white with black border
-            this.mSize = 50;  //default to 50 pixels
+            this.mSize = 60;  //default to 50 pixels
             this.mBackgroundColour = Color.White;
             this.mBorderColour = Color.Black;
 
@@ -69,6 +70,12 @@ namespace Assignment_5___Tile_Picker
             set { this.mBorderColour = value; }
             get { return this.mBorderColour; }
 
+        }
+
+        public Color TileColour
+        {
+            set { this.mTileColour = value; }
+            get { return this.mTileColour;  }
         }
     }
 }
