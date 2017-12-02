@@ -78,7 +78,7 @@ namespace Assignment_5___Tile_Picker
                     if (GameGrid.CheckTile(Y, X) == true)
                     {
                         //the user is notified that they have already clicked on the cell
-                        MessageBox.Show("You cannot click on the same tile twice! (Don't worry, your score has not been reset.)");
+                        MessageBox.Show("You cannot click on the same tile twice!\n(Don't worry, your score has not been reset.)");
                         lblScore.Text = ScoreOutput + UserScore;
 
                     }
