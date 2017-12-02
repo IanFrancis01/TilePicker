@@ -8,6 +8,7 @@ namespace Assignment_5___Tile_Picker
         private Tile[,] mGrid;
         private int mRows, mColumns;
         private int mTileSize;
+        private int Score;
 
         //Constructors
         public Grid(int Rows, int Columns, int TileSize)
@@ -37,6 +38,7 @@ namespace Assignment_5___Tile_Picker
             int Aqua = 0;
             int Brown = 0;
             int Black = 0;
+
             //looping through the colors, displaying them onto the screen.
             for (int i = 0; i < mRows; i++)
             {
@@ -80,85 +82,44 @@ namespace Assignment_5___Tile_Picker
                 }
             }
 
-
             //Creating a randomizer and a temp Color
             Random ColorOrder = new Random();
             Color TempTile;
 
             //looping through the rows and columns
-            for (int i = 0; i < mRows; i++)
+            for (int h = 0; h < 5; h++)
             {
-                for (int j = 0; j < mColumns; j++)
-                {
-                    //setting the bounds for the randomizer
-                    Rows = ColorOrder.Next(0, 7);
-                    Columns = ColorOrder.Next(0, 7);
-                    //randomizing the colors
-                    TempTile = mGrid[i, j].BackgroundColour;
-                    mGrid[i, j].BackgroundColour = mGrid[Rows, Columns].BackgroundColour;
-                    mGrid[Rows, Columns].BackgroundColour = TempTile;
-                }
-            }
 
-            /*
-            //creating a loop to detect where the player clicks
-            for (int i = 0; i < Rows; i++)
-            {
-                for (int j = 0; j < Columns; j++)
+                for (int i = 0; i < mRows; i++)
                 {
-                    if (MaxClicks > 0)
+                    for (int j = 0; j < mColumns; j++)
                     {
-                        // add if(mouse left click is true)
-                        if (mGrid[i, j].BackgroundColour == Color.Red)
-                        {
-                            Score += 1;
-                            MaxClicks--;
-                        }
-                        else if (mGrid[i, j].BackgroundColour == Color.Blue)
-                        {
-                            Score += 1;
-                            MaxClicks--;
-                        }
-                        else if (mGrid[i, j].BackgroundColour == Color.Green)
-                        {
-                            Score += 1;
-                            MaxClicks--;
-                        }
-                        else if (mGrid[i, j].BackgroundColour == Color.Maroon)
-                        {
-                            Score += 1;
-                            MaxClicks--;
-                        }
-                        else if (mGrid[i, j].BackgroundColour == Color.Aqua)
-                        {
-                            Score += 1;
-                            MaxClicks--;
-                        }
-                        else if (mGrid[i, j].BackgroundColour == Color.Brown)
-                        {
-                            Score += 1;
-                            MaxClicks--;
-                        }
-                        else if (mGrid[i, j].BackgroundColour == Color.Black)
-                        {
-                            Score += 1;
-                            MaxClicks--;
-                        }
-                    }
-                    else
-                    {
-                        //once the user has maxed out the amount of times they can click
+                        //setting the bounds for the randomizer
+                        Rows = ColorOrder.Next(0, 7);
+                        Columns = ColorOrder.Next(0, 7);
+
+                        //randomizing the colors
+                        TempTile = mGrid[i, j].TileColour;
+                        mGrid[i, j].TileColour = mGrid[Rows, Columns].TileColour;
+                        mGrid[Rows, Columns].TileColour = TempTile;
                     }
                 }
             }
-             */
         }
 
         //Methods
         public Tile GetTile(int x, int y)
         {
-            return mGrid[x, y];
+            if(x > (mRows-1) || y > (mColumns-1))
+            {
+                return null;
+            }
+            else
+            {
+                return mGrid[x, y];
+            }
         }
+        
 
         //X and Y are the left and top of the grid
         public void Draw(Graphics g, int X, int Y)
