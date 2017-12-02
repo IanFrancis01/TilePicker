@@ -10,6 +10,7 @@ namespace Assignment_5___Tile_Picker
         private int mTileSize;
         private int mScore = 0;
         private Tile[,] mNoSpam;
+        private bool Check = false;
 
         //Constructors
         public Grid(int Rows, int Columns, int TileSize)
@@ -132,57 +133,32 @@ namespace Assignment_5___Tile_Picker
             }
             else
             {
-                mNoSpam[x, y].BackgroundColour = Color.Orange;
+                return mGrid[x, y];
             }
-            return mGrid[x, y];
         }
 
         //check to see if the user has already clicked the cell
         public bool CheckTile(int x, int y)
         {
-            bool Check = false;
             if (x > (mRows - 1) || y > (mColumns - 1))
             {
                 Check = false;
             }
-            /*
-            else if (x == 0)
-            {
-                if (mNoSpam[x, y].BackgroundColour == Color.Orange)
-                {
-                    Check = true;
-                }
-                else
-                {
-                    Check = false;
-                }
-            }
-            else if (y == 0)
-            {
-                if(mNoSpam[x,y].BackgroundColour == Color.Orange)
-                {
-                    Check = true;
-                }
-                else
-                {
-                    Check = false;
-                }
-            }
-            */
             else
             {
-                if (mNoSpam[x, y].BackgroundColour == Color.Orange)
+                if (mNoSpam[x, y].BackgroundColour == Color.Transparent)
                 {
-                    Check = true;
-                    return Check;
-
-                }
-                else
-                {
+                    mNoSpam[x, y].BackgroundColour = Color.Orange;
                     Check = false;
                     return Check;
                 }
+                else if (mNoSpam[x,y].BackgroundColour == Color.Orange)
+                {
+                    Check = true;
+                    return Check;
+                }
             }
+
             return Check;
 
         }

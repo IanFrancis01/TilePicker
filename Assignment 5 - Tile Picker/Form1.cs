@@ -53,7 +53,7 @@ namespace Assignment_5___Tile_Picker
 
         private void Form1_MouseClick(object sender, MouseEventArgs e)
         {
-            MessageBox.Show("X = " + (e.X / 60) + " Y = " + (e.Y / 60));
+           // MessageBox.Show("X = " + (e.X / 60) + " Y = " + (e.Y / 60));
             int UserScore = 0;
             if (GameGrid == null)
             {
@@ -75,11 +75,11 @@ namespace Assignment_5___Tile_Picker
                 {
                     //Changing the color of the grid once it is clicked on
                     //checking to see if the cell has already been clicked on
-                    if (GameGrid.CheckTile(X, Y) == true)
+                    if (GameGrid.CheckTile(Y, X) == true)
                     {
-                        GameGrid.GetTile(Y, X).BackgroundColour = GameGrid.GetTile(X, Y).TileColour;
                         //the user is notified that they have already clicked on the cell
-                        MessageBox.Show("You cannot click on the same square twice!");
+                        MessageBox.Show("You cannot click on the same tile twice! (Don't worry, your score has not been reset.)");
+                        lblScore.Text = ScoreOutput + UserScore;
 
                     }
                     else
@@ -88,9 +88,7 @@ namespace Assignment_5___Tile_Picker
                         //score gets updated depending on the value returned (based on the color cliked)
                         UserScore += GameGrid.GetScore(X, Y);
                         ClicksLeft--;
-
                     }
-
 
                     //print the score and clicks left
                     lblMaxClicks.Text = ClickOutput + ClicksLeft;
