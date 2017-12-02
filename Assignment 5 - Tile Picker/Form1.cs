@@ -113,8 +113,6 @@ namespace Assignment_5___Tile_Picker
                     GameGrid = new Grid(GridRows, GridColumns, 60);
                     UserScore = 0;
                     ClicksLeft = 10;
-                    lblMaxClicks.Text = ClickOutput + ClicksLeft;
-                    lblScore.Text = ScoreOutput + UserScore;
                 }
 
                 //if the user runs out of clicks
@@ -124,8 +122,6 @@ namespace Assignment_5___Tile_Picker
                     GameGrid = new Grid(GridRows, GridColumns, 60);
                     UserScore = 0;
                     ClicksLeft = 10;
-                    lblMaxClicks.Text = ClickOutput + UserScore;
-                    lblScore.Text = ScoreOutput + UserScore;
                 }
             }
             this.Refresh();
