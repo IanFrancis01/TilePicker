@@ -26,7 +26,6 @@ namespace Assignment_5___Tile_Picker
         string ScoreOutput = "Score: ";
         int ClicksLeft = 10;
 
-
         public Form1()
         {
             InitializeComponent();
@@ -34,10 +33,10 @@ namespace Assignment_5___Tile_Picker
 
         private void btnStart_Click_1(object sender, EventArgs e)
         {
+            ClicksLeft = 10;
             //initializing the grid
             GameGrid = new Grid(GridRows, GridColumns, 60);
             this.Refresh();
-
         }
 
         private void Form1_Paint(object sender, PaintEventArgs e)
@@ -47,13 +46,11 @@ namespace Assignment_5___Tile_Picker
                 //drawing the grid
                 Graphics g = this.CreateGraphics();
                 GameGrid.Draw(g, 5, 5);
-
             }
         }
 
         private void Form1_MouseClick(object sender, MouseEventArgs e)
         {
-           // MessageBox.Show("X = " + (e.X / 60) + " Y = " + (e.Y / 60));
             int UserScore = 0;
             if (GameGrid == null)
             {
@@ -65,7 +62,6 @@ namespace Assignment_5___Tile_Picker
             }
             else
             {
-
                 //code to detect mouse click, add to score depending on the color clicked
                 //the size of one cell is 60 x 60. Take this size and do an integer calculation (division)
                 //to determine which cell was clicked on
@@ -80,7 +76,6 @@ namespace Assignment_5___Tile_Picker
                         //the user is notified that they have already clicked on the cell
                         MessageBox.Show("You cannot click on the same tile twice!\n(Don't worry, your score has not been reset.)");
                         lblScore.Text = ScoreOutput + UserScore;
-
                     }
                     else
                     {
@@ -97,7 +92,6 @@ namespace Assignment_5___Tile_Picker
                 else
                 {
                     //if the user clicks outside of the grid
-                    MessageBox.Show("Oops! You have clicked outside of the grid!");
                 }
 
                 //if the user reaches the max score or higher. Message appears, game resets.
@@ -124,7 +118,6 @@ namespace Assignment_5___Tile_Picker
             }
             //Refreshing the page once it's all said and done.
             this.Refresh();
-
         }
 
         private void btnStart_Paint(object sender, PaintEventArgs e)

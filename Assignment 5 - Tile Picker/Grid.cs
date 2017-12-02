@@ -20,9 +20,8 @@ namespace Assignment_5___Tile_Picker
             this.mColumns = Columns;
             this.mTileSize = TileSize;
 
-            //set the grid size
+            //set the grid sizes
             mGrid = new Tile[mRows, mColumns];
-            //creating a separate grid to prevent spam
             mNoSpam = new Tile[mRows, mColumns];
 
             //create each tile in the array
@@ -42,7 +41,6 @@ namespace Assignment_5___Tile_Picker
                     mNoSpam[i, j].BackgroundColour = Color.Transparent;
                 }
             }
-
 
             //creating variables for the colors being used
             int Red = 0;
@@ -100,10 +98,10 @@ namespace Assignment_5___Tile_Picker
             Random ColorOrder = new Random();
             Color TempTile;
 
-            //looping through the rows and columns
+            //setting the amount of times the randomizer will run
             for (int h = 0; h < 50; h++)
             {
-
+                //looping through the rows and columns
                 for (int i = 0; i < mRows; i++)
                 {
                     for (int j = 0; j < mColumns; j++)
@@ -122,10 +120,10 @@ namespace Assignment_5___Tile_Picker
         }
 
         //Methods
+
         //find the cell clicked on and return it
         public Tile GetTile(int x, int y)
         {
-
             //if the user clicks outside of the grid
             if (x > (mRows - 1) || y > (mColumns - 1))
             {
@@ -158,9 +156,7 @@ namespace Assignment_5___Tile_Picker
                     return Check;
                 }
             }
-
             return Check;
-
         }
 
         //adding a value to the score counter depending on the color of the cell clicked on
@@ -198,7 +194,6 @@ namespace Assignment_5___Tile_Picker
             return mScore;
         }
         
-
         //X and Y are the left and top of the grid
         public void Draw(Graphics g, int X, int Y)
         {
@@ -215,6 +210,5 @@ namespace Assignment_5___Tile_Picker
                 }
             }
         }
-
     }
 }
