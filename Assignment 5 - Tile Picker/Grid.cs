@@ -8,7 +8,8 @@ namespace Assignment_5___Tile_Picker
         private Tile[,] mGrid;
         private int mRows, mColumns;
         private int mTileSize;
-        private int Score;
+        private int mScore = 0;
+        private Tile[,] mNoSpam;
 
         //Constructors
         public Grid(int Rows, int Columns, int TileSize)
@@ -20,6 +21,8 @@ namespace Assignment_5___Tile_Picker
 
             //set the grid size
             mGrid = new Tile[mRows, mColumns];
+            //creating a separate grid to prevent spam
+            mNoSpam = new Tile[mRows, mColumns];
 
             //create each tile in the array
             for (int i = 0; i < this.mRows; i++)
@@ -27,8 +30,18 @@ namespace Assignment_5___Tile_Picker
                 for (int j = 0; j < this.mColumns; j++)
                 {
                     mGrid[i, j] = new Tile();
+                    mNoSpam[i, j] = new Tile();
                 }
             }
+
+            for (int i = 0; i < mRows; i++)
+            {
+                for (int j = 0; j < mColumns; j++)
+                {
+                    mNoSpam[i, j].BackgroundColour = Color.Transparent;
+                }
+            }
+
 
             //creating variables for the colors being used
             int Red = 0;
@@ -39,7 +52,7 @@ namespace Assignment_5___Tile_Picker
             int Brown = 0;
             int Black = 0;
 
-            //looping through the colors, displaying them onto the screen.
+            //looping through the colors, placing a fixed amount of each.
             for (int i = 0; i < mRows; i++)
             {
                 for (int j = 0; j < mColumns; j++)
@@ -87,7 +100,7 @@ namespace Assignment_5___Tile_Picker
             Color TempTile;
 
             //looping through the rows and columns
-            for (int h = 0; h < 5; h++)
+            for (int h = 0; h < 50; h++)
             {
 
                 for (int i = 0; i < mRows; i++)
@@ -108,16 +121,105 @@ namespace Assignment_5___Tile_Picker
         }
 
         //Methods
+        //find the cell clicked on and return it
         public Tile GetTile(int x, int y)
         {
-            if(x > (mRows-1) || y > (mColumns-1))
+
+            //if the user clicks outside of the grid
+            if (x > (mRows - 1) || y > (mColumns - 1))
             {
                 return null;
             }
             else
             {
-                return mGrid[x, y];
+                mNoSpam[x, y].BackgroundColour = Color.Orange;
             }
+            return mGrid[x, y];
+        }
+
+        //check to see if the user has already clicked the cell
+        public bool CheckTile(int x, int y)
+        {
+            bool Check = false;
+            if (x > (mRows - 1) || y > (mColumns - 1))
+            {
+                Check = false;
+            }
+            /*
+            else if (x == 0)
+            {
+                if (mNoSpam[x, y].BackgroundColour == Color.Orange)
+                {
+                    Check = true;
+                }
+                else
+                {
+                    Check = false;
+                }
+            }
+            else if (y == 0)
+            {
+                if(mNoSpam[x,y].BackgroundColour == Color.Orange)
+                {
+                    Check = true;
+                }
+                else
+                {
+                    Check = false;
+                }
+            }
+            */
+            else
+            {
+                if (mNoSpam[x, y].BackgroundColour == Color.Orange)
+                {
+                    Check = true;
+                    return Check;
+
+                }
+                else
+                {
+                    Check = false;
+                    return Check;
+                }
+            }
+            return Check;
+
+        }
+
+        //adding a value to the score counter depending on the color of the cell clicked on
+        //returning that value back to the form
+        public int GetScore(int x, int y)
+        {
+            if (mGrid[x, y].TileColour == Color.Red)
+            {
+                mScore += 1;
+            }
+            else if (mGrid[x, y].TileColour == Color.Blue)
+            {
+                mScore += 2;
+            }
+            else if (mGrid[x, y].TileColour == Color.Green)
+            {
+                mScore += 3;
+            }
+            else if (mGrid[x, y].TileColour == Color.Maroon)
+            {
+                mScore += 5;
+            }
+            else if (mGrid[x, y].TileColour == Color.Aqua)
+            {
+                mScore += 10;
+            }
+            else if (mGrid[x, y].TileColour == Color.Brown)
+            {
+                mScore += -1;
+            }
+            else if (mGrid[x, y].TileColour == Color.Black)
+            {
+                mScore += -3;
+            }
+            return mScore;
         }
         
 

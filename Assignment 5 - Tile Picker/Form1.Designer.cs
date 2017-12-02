@@ -48,18 +48,18 @@
             this.lblMaxClicks.AutoSize = true;
             this.lblMaxClicks.Location = new System.Drawing.Point(585, 74);
             this.lblMaxClicks.Name = "lblMaxClicks";
-            this.lblMaxClicks.Size = new System.Drawing.Size(61, 13);
+            this.lblMaxClicks.Size = new System.Drawing.Size(76, 13);
             this.lblMaxClicks.TabIndex = 1;
-            this.lblMaxClicks.Text = "Max Clicks:";
+            this.lblMaxClicks.Text = "Max Clicks: 10";
             // 
             // lblScore
             // 
             this.lblScore.AutoSize = true;
             this.lblScore.Location = new System.Drawing.Point(585, 99);
             this.lblScore.Name = "lblScore";
-            this.lblScore.Size = new System.Drawing.Size(38, 13);
+            this.lblScore.Size = new System.Drawing.Size(47, 13);
             this.lblScore.TabIndex = 2;
-            this.lblScore.Text = "Score:";
+            this.lblScore.Text = "Score: 0";
             // 
             // Form1
             // 
