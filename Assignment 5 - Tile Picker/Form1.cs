@@ -67,7 +67,12 @@ namespace Assignment_5___Tile_Picker
                 //to determine which cell was clicked on
                 int X = (e.X / 60);
                 int Y = (e.Y / 60);
-                if (GameGrid.GetTile(Y, X) != null)
+
+                if (GameGrid.GetTile(Y, X) == null)
+                {
+                    //if the user clicks outside of the grid
+                }
+                else
                 {
                     //Changing the color of the grid once it is clicked on
                     //checking to see if the cell has already been clicked on
@@ -89,15 +94,11 @@ namespace Assignment_5___Tile_Picker
                     lblMaxClicks.Text = ClickOutput + ClicksLeft;
                     lblScore.Text = ScoreOutput + UserScore;
                 }
-                else
-                {
-                    //if the user clicks outside of the grid
-                }
 
                 //if the user reaches the max score or higher. Message appears, game resets.
                 if (UserScore >= 30)
                 {
-                    MessageBox.Show("Congratualtions! You've won the game!");
+                    MessageBox.Show("Congratualtions! You've won the game! You earned " + UserScore + " points with " + ClicksLeft + " clicks left!");
                     GameGrid = new Grid(GridRows, GridColumns, 60);
                     UserScore = 0;
                     ClicksLeft = 10;
@@ -108,7 +109,7 @@ namespace Assignment_5___Tile_Picker
                 //if the user runs out of clicks. Message appears, game resets.
                 if (ClicksLeft == 0)
                 {
-                    MessageBox.Show("You have run out of tries! You had " + UserScore + " points.");
+                    MessageBox.Show("You have run out of tries! You earned " + UserScore + "/30 points!");
                     GameGrid = new Grid(GridRows, GridColumns, 60);
                     UserScore = 0;
                     ClicksLeft = 10;

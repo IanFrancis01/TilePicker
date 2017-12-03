@@ -26,7 +26,6 @@ namespace Assignment_5___Tile_Picker
             this.mSize = Size;
             this.mBackgroundColour = BackgroundColour;
             this.mBorderColour = BorderColour;
-
         }
 
         //Methods
@@ -48,7 +47,6 @@ namespace Assignment_5___Tile_Picker
             //dispose of drawing objects
             BorderPen.Dispose();
             BackBrush.Dispose();
-
         }
 
         //Properties
