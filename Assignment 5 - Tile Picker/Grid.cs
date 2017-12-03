@@ -99,7 +99,7 @@ namespace Assignment_5___Tile_Picker
             Color TempTile;
 
             //setting the amount of times the randomizer will run
-            for (int h = 0; h < 50; h++)
+            for (int h = 0; h < 5; h++)
             {
                 //looping through the rows and columns
                 for (int i = 0; i < mRows; i++)
