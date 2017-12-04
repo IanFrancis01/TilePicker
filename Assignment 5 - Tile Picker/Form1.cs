@@ -115,6 +115,7 @@ namespace Assignment_5___Tile_Picker
                     lblScore.Text = ScoreOutput + UserScore;
                 }
             }
+
             //Refreshing the page once it's all said and done.
             this.Refresh();
         }
