@@ -68,10 +68,8 @@ namespace Assignment_5___Tile_Picker
                 int X = (e.X / 60);
                 int Y = (e.Y / 60);
 
-                if (GameGrid.GetTile(Y, X) == null)
-                {
-                    //if the user clicks outside of the grid
-                }
+                if (GameGrid.GetTile(Y, X) == null) return;//if the user clicks outside of the grid
+
                 else
                 {
                     //Changing the color of the grid once it is clicked on

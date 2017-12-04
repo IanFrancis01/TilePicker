@@ -15,7 +15,7 @@ namespace Assignment_5___Tile_Picker
         public Tile()
         {
             //default white to white with black border
-            this.mSize = 60;  //default to 50 pixels
+            this.mSize = 60;  //default to 60 pixels
             this.mBackgroundColour = Color.White;
             this.mBorderColour = Color.Black;
 
