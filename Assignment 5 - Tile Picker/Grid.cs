@@ -125,14 +125,8 @@ namespace Assignment_5___Tile_Picker
         public Tile GetTile(int x, int y)
         {
             //if the user clicks outside of the grid
-            if (x > (mRows - 1) || y > (mColumns - 1))
-            {
-                return null;
-            }
-            else
-            {
-                return mGrid[x, y];
-            }
+            if (x > (mRows - 1) || y > (mColumns - 1)) return null;
+            else return mGrid[x, y];
         }
 
         //check to see if the user has already clicked the cell
