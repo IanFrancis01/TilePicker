@@ -127,7 +127,7 @@ namespace Assignment_5___Tile_Picker
                         lblScore.Text = ScoreOutput + UserScore;
                         this.Refresh();
 
-                        //after 10 seconds, a new grid is drawn.
+                        //after 5 seconds, a new grid is drawn. This code updates the countdown timer
                         LBLNewGame.Text = "New Game in: 5";
                         Thread.Sleep(1000);
                         this.Refresh();
@@ -170,8 +170,7 @@ namespace Assignment_5___Tile_Picker
                     lblScore.Text = ScoreOutput + UserScore;
                     this.Refresh();
 
-                    //after 10 seconds, a new grid is drawn.
-                    //Thread.Sleep(5000);
+                    //after 5 seconds, a new grid is drawn. This code updates the countdown timer
                     LBLNewGame.Text = "New Game in: 5";
                     Thread.Sleep(1000);
                     this.Refresh();
