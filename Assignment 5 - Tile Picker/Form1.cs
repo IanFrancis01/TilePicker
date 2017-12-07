@@ -102,39 +102,59 @@ namespace Assignment_5___Tile_Picker
                     lblScore.Text = ScoreOutput + UserScore;
                 }
 
-                //if the user reaches the max score or higher. Message appears, game resets.
-                if (UserScore >= 30)
-                {
-                    MessageBox.Show("Congratualtions! You've won the game! You earned " + UserScore + " points with " + ClicksLeft + " clicks left!");
-                    MessageBox.Show("A new grid will be drawn soon!");
-                    
-                    //all colours are revealed
-                    for (int i = 0; i < GridRows; i++)
-                    {
-                        for (int j = 0; j < GridColumns; j++)
-                        {
-                            GameGrid.GetTile(j, i).BackgroundColour = GameGrid.GetTile(j, i).TileColour;
-                        }
-                    }
-
-                    //score and click counter are reset, form is refreshed.
-                    UserScore = 0;
-                    ClicksLeft = 10;
-                    lblMaxClicks.Text = ClickOutput + ClicksLeft;
-                    lblScore.Text = ScoreOutput + UserScore;
-                    this.Refresh();
-
-                    //after 10 seconds, a new grid is drawn.
-                    Thread.Sleep(10000);
-                    GameGrid = new Grid(GridRows, GridColumns, 60);
-                }
-
                 //if the user runs out of clicks. Message appears, game resets.
                 if (ClicksLeft == 0)
                 {
-                    MessageBox.Show("You have run out of tries! You earned " + UserScore + "/30 points!");
-                    MessageBox.Show("A new grid will be drawn soon!");
+                    //if the user reaches the max score or higher. Message appears, game resets.
+                    if (UserScore >= 30)
+                    {
+                        MessageBox.Show("Congratualtions! You've won the game! You earned " + UserScore + " points with " + ClicksLeft + " clicks left!");
+                        MessageBox.Show("A new grid will be drawn soon!");
 
+                        //all colours are revealed
+                        for (int i = 0; i < GridRows; i++)
+                        {
+                            for (int j = 0; j < GridColumns; j++)
+                            {
+                                GameGrid.GetTile(j, i).BackgroundColour = GameGrid.GetTile(j, i).TileColour;
+                            }
+                        }
+
+                        //score and click counter are reset, form is refreshed.
+                        UserScore = 0;
+                        ClicksLeft = 10;
+                        lblMaxClicks.Text = ClickOutput + ClicksLeft;
+                        lblScore.Text = ScoreOutput + UserScore;
+                        this.Refresh();
+
+                        //after 10 seconds, a new grid is drawn.
+                        LBLNewGame.Text = "New Game in: 5";
+                        Thread.Sleep(1000);
+                        this.Refresh();
+                        LBLNewGame.Text = "New Game in: 4";
+                        Thread.Sleep(1000);
+                        this.Refresh();
+                        LBLNewGame.Text = "New Game in: 3";
+                        Thread.Sleep(1000);
+                        this.Refresh();
+                        LBLNewGame.Text = "New Game in: 2";
+                        Thread.Sleep(1000);
+                        this.Refresh();
+                        LBLNewGame.Text = "New Game in: 1";
+                        Thread.Sleep(1000);
+                        this.Refresh();
+                        GameGrid = new Grid(GridRows, GridColumns, 60);
+                        LBLNewGame.Text = string.Empty;
+                        Thread.Sleep(1000);
+                        this.Refresh();
+                    }
+                    else
+                    {
+                        MessageBox.Show("You have run out of tries! You earned " + UserScore + "/30 points!");
+                        MessageBox.Show("A new grid will be drawn soon!");
+
+                    }
+                    
                     //all colours are revealed
                     for (int i = 0; i < GridRows; i++)
                     {
@@ -151,8 +171,26 @@ namespace Assignment_5___Tile_Picker
                     this.Refresh();
 
                     //after 10 seconds, a new grid is drawn.
-                    Thread.Sleep(10000);
+                    //Thread.Sleep(5000);
+                    LBLNewGame.Text = "New Game in: 5";
+                    Thread.Sleep(1000);
+                    this.Refresh();
+                    LBLNewGame.Text = "New Game in: 4";
+                    Thread.Sleep(1000);
+                    this.Refresh();
+                    LBLNewGame.Text = "New Game in: 3";
+                    Thread.Sleep(1000);
+                    this.Refresh();
+                    LBLNewGame.Text = "New Game in: 2";
+                    Thread.Sleep(1000);
+                    this.Refresh();
+                    LBLNewGame.Text = "New Game in: 1";
+                    Thread.Sleep(1000);
+                    this.Refresh();
                     GameGrid = new Grid(GridRows, GridColumns, 60);
+                    LBLNewGame.Text = string.Empty;
+                    Thread.Sleep(1000);
+                    this.Refresh();
                 }
             }
 

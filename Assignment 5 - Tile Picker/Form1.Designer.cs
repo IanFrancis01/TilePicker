@@ -31,6 +31,7 @@
             this.btnStart = new System.Windows.Forms.Button();
             this.lblMaxClicks = new System.Windows.Forms.Label();
             this.lblScore = new System.Windows.Forms.Label();
+            this.LBLNewGame = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnStart
@@ -61,12 +62,21 @@
             this.lblScore.TabIndex = 2;
             this.lblScore.Text = "Score: 0";
             // 
+            // LBLNewGame
+            // 
+            this.LBLNewGame.AutoSize = true;
+            this.LBLNewGame.Location = new System.Drawing.Point(585, 137);
+            this.LBLNewGame.Name = "LBLNewGame";
+            this.LBLNewGame.Size = new System.Drawing.Size(0, 13);
+            this.LBLNewGame.TabIndex = 3;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(695, 487);
+            this.Controls.Add(this.LBLNewGame);
             this.Controls.Add(this.lblScore);
             this.Controls.Add(this.lblMaxClicks);
             this.Controls.Add(this.btnStart);
@@ -84,6 +94,7 @@
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.Label lblMaxClicks;
         private System.Windows.Forms.Label lblScore;
+        private System.Windows.Forms.Label LBLNewGame;
     }
 }
 
