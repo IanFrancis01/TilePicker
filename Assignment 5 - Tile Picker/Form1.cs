@@ -71,87 +71,54 @@ namespace Assignment_5___Tile_Picker
             }
             else
             {
-                //code to detect mouse click, add to score depending on the color clicked
-                //the size of one cell is 60 x 60. Take this size and do an integer calculation (division)
-                //to determine which cell was clicked on
-                int X = (e.X / 60);
-                int Y = (e.Y / 60);
-
-                if (GameGrid.GetTile(Y, X) == null) return;//if the user clicks outside of the grid
-
-                else
+                if (ClicksLeft > 0)
                 {
-                    //Changing the color of the grid once it is clicked on
-                    //checking to see if the cell has already been clicked on
-                    if (GameGrid.CheckTile(Y, X) == true)
-                    {
-                        //the user is notified that they have already clicked on the cell
-                        MessageBox.Show("You cannot click on the same tile twice!\n(Don't worry, your score has not been reset.)");
-                        lblScore.Text = ScoreOutput + UserScore;
-                    }
+                    //code to detect mouse click, add to score depending on the color clicked
+                    //the size of one cell is 60 x 60. Take this size and do an integer calculation (division)
+                    //to determine which cell was clicked on
+                    int X = (e.X / 60);
+                    int Y = (e.Y / 60);
+
+                    if (GameGrid.GetTile(Y, X) == null) return;//if the user clicks outside of the grid
+
                     else
                     {
-                        GameGrid.GetTile(Y, X).BackgroundColour = GameGrid.GetTile(X, Y).TileColour;
-                        //score gets updated depending on the value returned (based on the color cliked)
-                        UserScore += GameGrid.GetScore(X, Y);
-                        ClicksLeft--;
+                        //Changing the color of the grid once it is clicked on
+                        //checking to see if the cell has already been clicked on
+                        if (GameGrid.CheckTile(Y, X) == true)
+                        {
+                            //the user is notified that they have already clicked on the cell
+                            MessageBox.Show("You cannot click on the same tile twice!\n(Don't worry, your score has not been reset.)");
+                            lblScore.Text = ScoreOutput + UserScore;
+                        }
+                        else
+                        {
+                            GameGrid.GetTile(Y, X).BackgroundColour = GameGrid.GetTile(X, Y).TileColour;
+                            //score gets updated depending on the value returned (based on the color cliked)
+                            UserScore += GameGrid.GetScore(X, Y);
+                            ClicksLeft--;
+                        }
+
+                        //print the score and clicks left
+                        lblMaxClicks.Text = ClickOutput + ClicksLeft;
+                        lblScore.Text = ScoreOutput + UserScore;
                     }
-
-                    //print the score and clicks left
-                    lblMaxClicks.Text = ClickOutput + ClicksLeft;
-                    lblScore.Text = ScoreOutput + UserScore;
                 }
-
-                //if the user runs out of clicks. Message appears, game resets.
-                if (ClicksLeft == 0)
+                else if (ClicksLeft == 0)
                 {
                     //if the user reaches the max score or higher. Message appears, game resets.
                     if (UserScore >= 30)
                     {
-                        MessageBox.Show("Congratualtions! You've won the game! You earned " + UserScore + " points with " + ClicksLeft + " clicks left!");
-                        MessageBox.Show("A new grid will be drawn soon!");
+                        MessageBox.Show("Congratualtions! You've won the game!");
                     }
                     else //if the player lost the game.
                     {
-                        MessageBox.Show("You have run out of tries! You earned " + UserScore + "/30 points!");
-                        MessageBox.Show("A new grid will be drawn soon!");
+                        MessageBox.Show("Sorry! You have run out of tries!");
                     }
-
-                        //all colours are revealed
-                        for (int i = 0; i < GridRows; i++)
-                        {
-                            for (int j = 0; j < GridColumns; j++)
-                            {
-                                GameGrid.GetTile(j, i).BackgroundColour = GameGrid.GetTile(i, j).TileColour;
-                            }
-                        }
-                        //score and click counter are reset, form is refreshed.
-                        UserScore = 0;
-                        ClicksLeft = 10;
-                        lblMaxClicks.Text = ClickOutput + ClicksLeft;
-                        lblScore.Text = ScoreOutput + UserScore;
-                        this.Refresh();
-
-                        //after 5 seconds, a new grid is drawn. This code updates the countdown timer
-                        LBLNewGame.Text = "New Game in: 5";
-                        Thread.Sleep(1000);
-                        this.Refresh();
-                        LBLNewGame.Text = "New Game in: 4";
-                        Thread.Sleep(1000);
-                        this.Refresh();
-                        LBLNewGame.Text = "New Game in: 3";
-                        Thread.Sleep(1000);
-                        this.Refresh();
-                        LBLNewGame.Text = "New Game in: 2";
-                        Thread.Sleep(1000);
-                        this.Refresh();
-                        LBLNewGame.Text = "New Game in: 1";
-                        Thread.Sleep(1000);
-                        this.Refresh();
-                        GameGrid = new Grid(GridRows, GridColumns, 60);
-                        LBLNewGame.Text = string.Empty;
-                        Thread.Sleep(1000);
-                        this.Refresh();
+                    if (e.Button == MouseButtons.Left)
+                    {
+                        MessageBox.Show("You must restart the grid to play!");
+                    }
                 }
             }
 
